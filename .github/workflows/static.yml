@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Question</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Will you go out with me? ❤️</h1>
+
+    <div class="buttons">
+      <button class="yes-button" onclick="handleYesClick()">Yes</button>
+      <button class="no-button" onclick="handleNoClick()">No</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffe6f0;
+}
+
+.container {
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+}
+
+.yes-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.no-button {
+  background-color: #f44336;
+  color: white;
+}
+let messageIndex = 0;
+
+const messages = [
+  "Are you sure?",
+  "Really sure??",
+  "Think again!",
+  "Last chance!",
+  "You might regret this!",
+  "Just say yes 😭"
+];
+
+function handleNoClick() {
+  const noButton = document.querySelector('.no-button');
+  const yesButton = document.querySelector('.yes-button');
+
+  noButton.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length;
+
+  const currentSize = parseFloat(
+    window.getComputedStyle(yesButton).fontSize
+  );
+
+  yesButton.style.fontSize = `${currentSize * 1.5}px`;
+}
+
+function handleYesClick() {
+  window.location.href = "yes_page.html";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yay!</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #d4f8d4;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>YAY!!! 💖🥰</h1>
+</body>
+</html>
